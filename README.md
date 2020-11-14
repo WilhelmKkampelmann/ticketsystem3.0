@@ -32,3 +32,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+ 
