@@ -1,10 +1,10 @@
 <template>
-  <b-navbar shadow>
+  <b-navbar shadow centered>
     <template slot="brand"
       ><b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img src="@/assets/logo.png" /> </b-navbar-item
     ></template>
-    <template slot="start">
+    <template slot="start" >
       <b-navbar-item href="#"> Home </b-navbar-item>
       <b-navbar-item href="#">
         <router-link :to="{ path: '/main'}">Main</router-link>
@@ -28,3 +28,7 @@ export default {
   name: 'Header',
 };
 </script>
+
+<style scoped>
+
+</style>
