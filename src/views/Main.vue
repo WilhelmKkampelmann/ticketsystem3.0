@@ -2,7 +2,7 @@
   <section>
     <b-field label="Select your Error and Urgency" grouped>
       <b-select
-      v-model="userInputDatas.kindOfError"
+      v-model="userInputDatas.selectedKindOfError"
       expanded>
         <option
         v-for="option in kindOfError"
@@ -13,7 +13,7 @@
         </option>
       </b-select>
       <b-select
-      v-model="userInputDatas.urgency"
+      v-model="userInputDatas.selectedUrgency"
       expanded>
         <option
         v-for="option in urgency"
@@ -26,7 +26,8 @@
     </b-field>
     <b-field label="Subject" >
             <b-input maxlength="50" type="textarea"
-            v-model="userInputDatas.subject"></b-input>
+            v-model="userInputDatas.subject"
+            ></b-input>
     </b-field>
     <b-field label="Describe your Error" >
             <b-input maxlength="100" type="textarea"
@@ -47,6 +48,7 @@
             expanded>
             </b-input>
     </b-field>
+    <b-button @click="clickMe">Send</b-button>
   </section>
 </template>
 
@@ -66,8 +68,8 @@ export default {
         { name: 'Green', value: 'green' },
       ],
       userInputDatas: {
-        kindOfError: '',
-        urgency: '',
+        selectedKindOfError: '',
+        selectedUrgency: '',
         subject: '',
         describeError: '',
         url: '',
@@ -75,6 +77,11 @@ export default {
         tel: '',
       },
     };
+  },
+  methods: {
+    clickMe() {
+      console.log(this.userInputDatas);
+    },
   },
 };
 </script>
