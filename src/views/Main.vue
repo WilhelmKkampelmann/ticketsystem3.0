@@ -95,7 +95,10 @@ export default {
       this.userInputDatas.tel = '';
     },
     sendDatas() {
-      console.log('send');
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'Post',
+        body: JSON.stringify(this.userInputDatas),
+      }).then((response) => console.log(response));
     },
   },
 };
