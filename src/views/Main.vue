@@ -1,6 +1,6 @@
 <template>
   <section>
-    <b-field label="Select your Error">
+    <b-field label="Select your Error" label-position="on-border" custom-class="b-field">
       <b-select
       v-model="userInputDatas.selectedKindOfError"
       expanded>
@@ -13,7 +13,7 @@
         </option>
       </b-select>
     </b-field>
-    <b-field label="Select your Urgency">
+    <b-field label="Select your Urgency" label-position="on-border">
       <b-select
       v-model="userInputDatas.selectedUrgency"
       expanded>
@@ -26,20 +26,20 @@
         </option>
       </b-select>
     </b-field>
-    <b-field label="Subject" >
+    <b-field label="Subject" label-position="on-border">
             <b-input maxlength="50" type="textarea"
             v-model="userInputDatas.subject"
             ></b-input>
     </b-field>
-    <b-field label="Describe your Error" >
+    <b-field label="Describe your Error" label-position="on-border">
             <b-input maxlength="100" type="textarea"
             v-model="userInputDatas.describeError"></b-input>
     </b-field>
-    <b-field label="URL">
+    <b-field label="URL" label-position="on-border">
             <b-input v-model="userInputDatas.url"
             placeholder="https://...."></b-input>
     </b-field>
-    <b-field label="Contacts" grouped>
+    <b-field label="Contacts" grouped label-position="on-border">
             <b-input v-model="userInputDatas.email"
             type="email"
             placeholder="nobody@nowhere.com"
@@ -50,7 +50,7 @@
             expanded>
             </b-input>
     </b-field>
-    <b-button @click="clickMe">Send</b-button>
+    <b-button @click="clickMe" >Send</b-button>
   </section>
 </template>
 
@@ -82,7 +82,20 @@ export default {
   },
   methods: {
     clickMe() {
-      console.log(this.userInputDatas);
+      this.sendDatas();
+      this.clearInputFields();
+    },
+    clearInputFields() {
+      this.userInputDatas.selectedKindOfError = null;
+      this.userInputDatas.selectedUrgency = null;
+      this.userInputDatas.subject = '';
+      this.userInputDatas.describeError = '';
+      this.userInputDatas.url = '';
+      this.userInputDatas.email = '';
+      this.userInputDatas.tel = '';
+    },
+    sendDatas() {
+      console.log('send');
     },
   },
 };
