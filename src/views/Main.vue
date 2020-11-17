@@ -1,24 +1,26 @@
 <template>
   <section>
-    <b-field label="Select your Error and Urgency" grouped>
+    <b-field label="Select your Error">
       <b-select
       v-model="userInputDatas.selectedKindOfError"
       expanded>
         <option
-        v-for="option in kindOfError"
-        :value="option.id"
-        :key="option.id"
+        v-for="(option, index) in kindOfError"
+        :value="option.value"
+        :key="index"
         >
             {{ option.name }}
         </option>
       </b-select>
+    </b-field>
+    <b-field label="Select your Urgency">
       <b-select
       v-model="userInputDatas.selectedUrgency"
       expanded>
         <option
-        v-for="option in urgency"
-        :value="option.id"
-        :key="option.id"
+        :value="option.value"
+        v-for="(option, index) in urgency"
+        :key="index"
         >
             {{ option.name }}
         </option>
@@ -68,8 +70,8 @@ export default {
         { name: 'Green', value: 'green' },
       ],
       userInputDatas: {
-        selectedKindOfError: '',
-        selectedUrgency: '',
+        selectedKindOfError: null,
+        selectedUrgency: null,
         subject: '',
         describeError: '',
         url: '',
