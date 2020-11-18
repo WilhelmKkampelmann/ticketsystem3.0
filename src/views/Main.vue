@@ -78,6 +78,7 @@ export default {
         email: '',
         tel: '',
       },
+      post: [],
     };
   },
   methods: {
@@ -94,11 +95,21 @@ export default {
       this.userInputDatas.email = '';
       this.userInputDatas.tel = '';
     },
-    sendDatas() {
-      fetch('https://jsonplaceholder.typicode.com/posts', {
+    async sendDatas() {
+      const article = {
         method: 'Post',
         body: JSON.stringify(this.userInputDatas),
-      }).then((response) => console.log(response));
+      };
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts', article);
+      const data = await response.json();
+      this.post = data;
+      console.log(this.post);
+
+      if (!response.ok) {
+        console.log('send data error');
+      } else {
+        console.log('send data ok');
+      }
     },
   },
 };
