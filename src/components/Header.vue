@@ -5,13 +5,19 @@
         <img src="@/assets/logo.png" /> </b-navbar-item
     ></template>
     <template slot="start" >
-      <b-navbar-item href="#"> Home </b-navbar-item>
+      <b-navbar-item href="#">
+        <router-link :to="{ path: '/'}">Home</router-link>
+      </b-navbar-item>
       <b-navbar-item href="#">
         <router-link :to="{ path: '/main'}">Main</router-link>
       </b-navbar-item>
       <b-navbar-dropdown hoverable label="Info">
-        <b-navbar-item href="#"> About </b-navbar-item>
-        <b-navbar-item href="#"> Contact </b-navbar-item>
+        <b-navbar-item href="#">
+          <router-link :to="{ path: '/about'}">About</router-link>
+        </b-navbar-item>
+        <b-navbar-item href="#">
+          <router-link :to="{ path: '/contact'}">Contact</router-link>
+        </b-navbar-item>
       </b-navbar-dropdown>
     </template>
     <template slot="end">
