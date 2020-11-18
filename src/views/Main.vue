@@ -51,6 +51,22 @@
             </b-input>
     </b-field>
     <b-button @click="clickMe" >Send</b-button>
+    <b-loading :is-full-page="isFullPage"
+     v-model="isLoading"
+     :can-cancel="true">
+     </b-loading>
+     <b-notification
+      auto-close type="is-success"
+      v-model="successIsActive"
+      aria-close-label="Close notification">
+      Sending was successful
+      </b-notification>
+      <b-notification
+      auto-close type="is-danger"
+      v-model="errorIsActive"
+      aria-close-label="Close notification">
+      There was a Error
+      </b-notification>
   </section>
 </template>
 
@@ -79,12 +95,17 @@ export default {
         tel: '',
       },
       post: [],
+      isLoading: false,
+      isFullPage: true,
+      successIsActive: false,
+      errorIsActive: false,
     };
   },
   methods: {
     clickMe() {
-      this.sendDatas();
       this.clearInputFields();
+      this.isLoading = true;
+      this.sendDatas();
     },
     clearInputFields() {
       this.userInputDatas.selectedKindOfError = null;
@@ -106,9 +127,11 @@ export default {
       console.log(this.post);
 
       if (!response.ok) {
-        console.log('send data error');
+        this.isLoading = false;
+        this.errorIsActive = true;
       } else {
-        console.log('send data ok');
+        this.isLoading = false;
+        this.successIsActive = true;
       }
     },
   },
