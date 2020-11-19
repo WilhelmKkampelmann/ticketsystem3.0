@@ -1,9 +1,10 @@
 <template>
   <section>
+    <form @submit.prevent="clickMe">
     <b-field label="Select your Error" label-position="on-border" custom-class="b-field">
       <b-select
       v-model="userInputDatas.selectedKindOfError"
-      expanded>
+      expanded required>
         <option
         v-for="(option, index) in kindOfError"
         :value="option.value"
@@ -16,7 +17,7 @@
     <b-field label="Select your Urgency" label-position="on-border">
       <b-select
       v-model="userInputDatas.selectedUrgency"
-      expanded>
+      expanded required>
         <option
         :value="option.value"
         v-for="(option, index) in urgency"
@@ -28,29 +29,30 @@
     </b-field>
     <b-field label="Subject" label-position="on-border">
             <b-input maxlength="50" type="textarea"
-            v-model="userInputDatas.subject"
+            v-model="userInputDatas.subject" required
             ></b-input>
     </b-field>
     <b-field label="Describe your Error" label-position="on-border">
             <b-input maxlength="100" type="textarea"
-            v-model="userInputDatas.describeError"></b-input>
+            v-model="userInputDatas.describeError" required
+            ></b-input>
     </b-field>
     <b-field label="URL" label-position="on-border">
-            <b-input v-model="userInputDatas.url"
-            placeholder="https://...."></b-input>
+            <b-input v-model="userInputDatas.url" type="text" required
+            placeholder="https://...." maxlength="3"></b-input>
     </b-field>
     <b-field label="Contacts" grouped label-position="on-border">
-            <b-input v-model="userInputDatas.email"
+            <b-input v-model="userInputDatas.email" required
             type="email"
             placeholder="nobody@nowhere.com"
             expanded>
             </b-input>
             <b-input v-model="userInputDatas.tel"
-            placeholder="Telephone numer"
+            placeholder="Telephone numer" required
             expanded>
             </b-input>
     </b-field>
-    <b-button @click="clickMe" >Send</b-button>
+    <b-input type="submit">Send</b-input>
     <b-loading :is-full-page="isFullPage"
      v-model="isLoading"
      :can-cancel="true">
@@ -67,6 +69,7 @@
       aria-close-label="Close notification">
       There was a Error
       </b-notification>
+    </form>
   </section>
 </template>
 
