@@ -40,13 +40,12 @@ export default {
   name: 'Header',
   data() {
     return {
-      lang: undefined,
+      lang: '',
     };
   },
   methods: {
-    f(e) {
-      console.log('xxx');
-      console.log(e);
+    f(event) {
+      localStorage.setItem('lang', event);
     },
   },
 };
