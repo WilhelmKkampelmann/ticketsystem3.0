@@ -9,7 +9,7 @@
         <router-link :to="{ path: '/'}">Home</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        <router-link :to="{ path: '/main'}">Main</router-link>
+        <router-link :to="{ path: '/main'}">Customer Service</router-link>
       </b-navbar-item>
       <b-navbar-dropdown hoverable label="Info">
         <b-navbar-item href="#">
@@ -21,10 +21,16 @@
       </b-navbar-dropdown>
     </template>
     <template slot="end">
-      <b-navbar-dropdown hoverable right label="Language">
-        <b-navbar-item href="#" value="de"> English </b-navbar-item>
-        <b-navbar-item href="#" value="de"> German </b-navbar-item>
-      </b-navbar-dropdown>
+      <b-field label="Language">
+      <b-select v-model="lang" @input="f($event)">
+        <option value="de">
+          deutsch
+        </option>
+        <option value="en">
+          english
+        </option>
+      </b-select>
+    </b-field>
     </template>
   </b-navbar>
 </template>
@@ -32,6 +38,17 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      lang: undefined,
+    };
+  },
+  methods: {
+    f(e) {
+      console.log('xxx');
+      console.log(e);
+    },
+  },
 };
 </script>
 

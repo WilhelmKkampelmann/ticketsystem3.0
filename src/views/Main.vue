@@ -1,7 +1,8 @@
 <template>
   <section>
+    <h1 class="headline">Customer Service</h1>
     <form @submit.prevent="clickMe">
-    <b-field label="Select your Error" label-position="on-border" custom-class="b-field">
+    <b-field label="Select your Error" label-position="on-border">
       <b-select
       v-model="userInputDatas.selectedKindOfError"
       expanded required>
@@ -39,7 +40,7 @@
     </b-field>
     <b-field label="URL" label-position="on-border">
             <b-input v-model="userInputDatas.url" type="text" required
-            placeholder="https://...." maxlength="3"></b-input>
+            placeholder="https://...."></b-input>
     </b-field>
     <b-field label="Contacts" grouped label-position="on-border">
             <b-input v-model="userInputDatas.email" required
@@ -48,11 +49,11 @@
             expanded>
             </b-input>
             <b-input v-model="userInputDatas.tel"
-            placeholder="Telephone numer" required
+            placeholder="Telephone number" required
             expanded>
             </b-input>
     </b-field>
-    <b-input type="submit">Send</b-input>
+    <b-input type="button submit" active class="btn">Send</b-input>
     <b-loading :is-full-page="isFullPage"
      v-model="isLoading"
      :can-cancel="true">
@@ -97,7 +98,7 @@ export default {
         email: '',
         tel: '',
       },
-      post: [],
+      postResponse: [],
       isLoading: false,
       isFullPage: true,
       successIsActive: false,
@@ -106,9 +107,25 @@ export default {
   },
   methods: {
     clickMe() {
-      this.clearInputFields();
       this.isLoading = true;
       this.sendDatas();
+      this.clearInputFields();
+    },
+    async sendDatas() {
+      const article = {
+        method: 'Post',
+        body: JSON.stringify(this.userInputDatas),
+      };
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts', article);
+      const data = await response.json();
+      this.postResponse = data;
+      if (!response.ok) {
+        this.isLoading = false;
+        this.errorIsActive = true;
+      } else {
+        this.isLoading = false;
+        this.successIsActive = true;
+      }
     },
     clearInputFields() {
       this.userInputDatas.selectedKindOfError = null;
@@ -119,24 +136,6 @@ export default {
       this.userInputDatas.email = '';
       this.userInputDatas.tel = '';
     },
-    async sendDatas() {
-      const article = {
-        method: 'Post',
-        body: JSON.stringify(this.userInputDatas),
-      };
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts', article);
-      const data = await response.json();
-      this.post = data;
-      console.log(this.post);
-
-      if (!response.ok) {
-        this.isLoading = false;
-        this.errorIsActive = true;
-      } else {
-        this.isLoading = false;
-        this.successIsActive = true;
-      }
-    },
   },
 };
 </script>
@@ -144,9 +143,22 @@ export default {
 <style scoped>
 section{
     max-width: 90%;
-    width: 45%;
-    height: 100vh;
+    width: 40%;
+    height: 80vh;
     margin: 1.5rem auto;
+    text-align: center;
+}
+.btn{
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+.headline{
+  margin: 0 0 1.5rem 0;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 </style>
