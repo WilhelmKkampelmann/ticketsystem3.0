@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 class="headline">Customer Service</h1>
+    <h1 class="headline">{{$t('message')}}</h1>
     <form @submit.prevent="clickMe">
     <b-field label="Select your Error" label-position="on-border">
       <b-select
