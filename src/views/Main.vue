@@ -1,8 +1,8 @@
 <template>
   <section>
-    <h1 class="headline">{{ $t('message') }}</h1>
+    <h1 class="headline">{{ $t('nav.customer-service') }}</h1>
     <form @submit.prevent="clickMe">
-    <b-field label= "select your error" label-position="on-border">
+    <b-field :label= "$t('main.input1')" label-position="on-border">
       <b-select
       v-model="userInputDatas.selectedKindOfError"
       expanded required>
@@ -15,7 +15,7 @@
         </option>
       </b-select>
     </b-field>
-    <b-field label="Select your Urgency" label-position="on-border">
+    <b-field :label= "$t('main.input2')" label-position="on-border">
       <b-select
       v-model="userInputDatas.selectedUrgency"
       expanded required>
@@ -28,21 +28,21 @@
         </option>
       </b-select>
     </b-field>
-    <b-field label="Subject" label-position="on-border">
+    <b-field :label= "$t('main.input3')" label-position="on-border">
             <b-input maxlength="50" type="textarea"
             v-model="userInputDatas.subject" required
             ></b-input>
     </b-field>
-    <b-field label="Describe your Error" label-position="on-border">
+    <b-field :label= "$t('main.input4')" label-position="on-border">
             <b-input maxlength="100" type="textarea"
             v-model="userInputDatas.describeError" required
             ></b-input>
     </b-field>
-    <b-field label="URL" label-position="on-border">
+    <b-field :label= "$t('main.input5')" label-position="on-border">
             <b-input v-model="userInputDatas.url" type="text" required
             placeholder="https://...."></b-input>
     </b-field>
-    <b-field label="Contacts" grouped label-position="on-border">
+    <b-field :label= "$t('main.input6')" grouped label-position="on-border">
             <b-input v-model="userInputDatas.email" required
             type="email"
             placeholder="nobody@nowhere.com"

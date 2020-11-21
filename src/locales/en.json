@@ -16,6 +16,12 @@
     "input3": "Whats your subject",
     "input4": "Describe your problem in your own words",
     "input5": "Whats your URL",
-    "input6": "Give us your Contacs"
+    "input6": "Give us your Contacs",
+    "red": "red",
+    "yellow": "yellow",
+    "green": "green",
+    "classic": "classic error",
+    "warning": "warning",
+    "change": "change request"
 }
 }
