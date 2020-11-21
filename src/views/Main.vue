@@ -80,14 +80,14 @@ export default {
   data() {
     return {
       kindOfError: [
-        { name: 'Classic', value: 'classic' },
-        { name: 'Warning', value: 'warning' },
-        { name: 'Change Request', value: 'change' },
+        { name: this.$t('main.classic'), value: 'classic' },
+        { name: this.$t('main.warning'), value: 'warning' },
+        { name: this.$t('main.change'), value: 'changeRequest' },
       ],
       urgency: [
-        { name: 'Red', value: 'red' },
-        { name: 'Yellow', value: 'yellow' },
-        { name: 'Green', value: 'green' },
+        { name: this.$t('main.red'), value: 'red' },
+        { name: this.$t('main.yellow'), value: 'yellow' },
+        { name: this.$t('main.green'), value: 'green' },
       ],
       userInputDatas: {
         selectedKindOfError: null,
