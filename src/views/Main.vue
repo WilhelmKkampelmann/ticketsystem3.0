@@ -1,8 +1,8 @@
 <template>
   <section>
-    <h1 class="headline">{{$t('message')}}</h1>
+    <h1 class="headline">{{ $t('message') }}</h1>
     <form @submit.prevent="clickMe">
-    <b-field label="Select your Error" label-position="on-border">
+    <b-field label= "select your error" label-position="on-border">
       <b-select
       v-model="userInputDatas.selectedKindOfError"
       expanded required>
@@ -53,7 +53,7 @@
             expanded>
             </b-input>
     </b-field>
-    <b-input type="button submit" active class="btn">Send</b-input>
+    <b-input type="submit" active custom-class="btn">Send</b-input>
     <b-loading :is-full-page="isFullPage"
      v-model="isLoading"
      :can-cancel="true">
@@ -148,13 +148,17 @@ section{
     margin: 1.5rem auto;
     text-align: center;
 }
+
 .btn{
   border-radius: 10px;
   width: 50%;
   margin: 0 auto;
   text-align: center;
-
+  cursor: pointer;
+  color: red;
+  background: red;
 }
+
 .headline{
   margin: 0 0 1.5rem 0;
   font-weight: bold;

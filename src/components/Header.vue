@@ -21,7 +21,7 @@
       </b-navbar-dropdown>
     </template>
     <template slot="end">
-      <b-field label="Language">
+      <b-field>
       <b-select v-model="lang" @input="f($event)">
         <option value="de">
           deutsch
@@ -40,17 +40,20 @@ export default {
   name: 'Header',
   data() {
     return {
-      lang: '',
+      lang: localStorage.getItem('lang' || 'en'),
     };
   },
   methods: {
     f(event) {
       localStorage.setItem('lang', event);
+      this.$i18n.locale = localStorage.getItem('lang');
     },
   },
 };
 </script>
 
 <style scoped>
-
+*{
+  text-decoration: none;
+}
 </style>
