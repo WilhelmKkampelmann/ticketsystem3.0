@@ -6,17 +6,17 @@
     ></template>
     <template slot="start" >
       <b-navbar-item href="#">
-        <router-link :to="{ path: '/'}">Home</router-link>
+        <router-link :to="{ path: '/'}">{{$t('nav.home')}}</router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        <router-link :to="{ path: '/main'}">Customer Service</router-link>
+        <router-link :to="{ path: '/main'}">{{$t('nav.customer-service')}}</router-link>
       </b-navbar-item>
       <b-navbar-dropdown hoverable label="Info">
         <b-navbar-item href="#">
-          <router-link :to="{ path: '/about'}">About</router-link>
+          <router-link :to="{ path: '/about'}">{{$t('nav.about')}}</router-link>
         </b-navbar-item>
         <b-navbar-item href="#">
-          <router-link :to="{ path: '/contact'}">Contact</router-link>
+          <router-link :to="{ path: '/contact'}">{{$t('nav.contact')}}</router-link>
         </b-navbar-item>
       </b-navbar-dropdown>
     </template>
@@ -24,10 +24,10 @@
       <b-field>
       <b-select v-model="lang" @input="f($event)">
         <option value="de">
-          deutsch
+          {{$t('nav.german')}}
         </option>
         <option value="en">
-          english
+          {{$t('nav.english')}}
         </option>
       </b-select>
     </b-field>

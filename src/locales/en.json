@@ -1,3 +1,21 @@
 {
-  "message": "hello i18n !!"
+  "nav": {
+    "customer-service": "Customer Service",
+    "about": "About",
+    "contact": "conatact",
+    "home":  "Home",
+    "headline": "Ticketsystem",
+    "register": "Register",
+    "login": "Login",
+    "english": "English",
+    "german": "German"
+  },
+  "main": {
+    "input1": "Choose your kind of problem",
+    "input2": "How urgent is your request?",
+    "input3": "Whats your subject",
+    "input4": "Describe your problem in your own words",
+    "input5": "Whats your URL",
+    "input6": "Give us your Contacs"
+}
 }
