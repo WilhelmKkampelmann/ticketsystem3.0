@@ -40,7 +40,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      lang: localStorage.getItem('lang' || 'en'),
+      lang: localStorage.getItem('en' || 'lang'),
     };
   },
   methods: {
