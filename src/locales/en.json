@@ -22,6 +22,8 @@
     "green": "green",
     "classic": "classic error",
     "warning": "warning",
-    "change": "change request"
+    "change": "change request",
+    "sending-success": "sending was successful",
+    "sending-error": "There was an Error"
 }
 }
