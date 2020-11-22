@@ -62,13 +62,13 @@
       auto-close type="is-success"
       v-model="successIsActive"
       aria-close-label="Close notification">
-      Sending was successful
+      {{ $t('main.sending-success')}}
       </b-notification>
       <b-notification
       auto-close type="is-danger"
       v-model="errorIsActive"
       aria-close-label="Close notification">
-      There was a Error
+      {{ $t('main.sending-error')}}
       </b-notification>
     </form>
   </section>
@@ -82,7 +82,7 @@ export default {
       kindOfError: [
         { name: this.$t('main.classic'), value: 'classic' },
         { name: this.$t('main.warning'), value: 'warning' },
-        { name: this.$t('main.change'), value: 'changeRequest' },
+        { name: this.$t('main.change'), value: 'change' },
       ],
       urgency: [
         { name: this.$t('main.red'), value: 'red' },
@@ -155,8 +155,6 @@ section{
   margin: 0 auto;
   text-align: center;
   cursor: pointer;
-  color: red;
-  background: red;
 }
 
 .headline{

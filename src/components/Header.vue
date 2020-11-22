@@ -1,4 +1,5 @@
 <template>
+<section>
   <b-navbar shadow centered>
     <template slot="brand"
       ><b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -23,16 +24,17 @@
     <template slot="end">
       <b-field>
       <b-select v-model="lang" @input="f($event)">
-        <option value="de">
-          {{$t('nav.german')}}
-        </option>
         <option value="en">
-          {{$t('nav.english')}}
+          English
+        </option>
+        <option value="de">
+          Deutsch
         </option>
       </b-select>
     </b-field>
     </template>
   </b-navbar>
+</section>
 </template>
 
 <script>
@@ -40,7 +42,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      lang: localStorage.getItem('lang' || 'en'),
+      lang: 'en' || localStorage.getItem('lang'),
     };
   },
   methods: {
